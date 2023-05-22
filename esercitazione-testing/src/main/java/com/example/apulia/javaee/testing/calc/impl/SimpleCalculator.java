@@ -12,28 +12,29 @@ public class SimpleCalculator implements BaseCalculator {
 
 	@Override
 	public Integer sum(Integer n1, Integer n2) throws CalculatorInputNotValidException {
-		
-		if (Objects.isNull(n1))
-			throw new CalculatorInputNotValidException("First parameter cannot be null!");
 
-		if (Objects.isNull(n2))
-			throw new CalculatorInputNotValidException("Second parameter cannot be null!");
-		
+		checkForNullValues(n1, n2);
+
 		return n1 + n2;
 	}
 
 	@Override
-	public Integer subtraction(Integer n1, Integer n2) {
+	public Integer subtraction(Integer n1, Integer n2) throws CalculatorInputNotValidException {
+		
+		checkForNullValues(n1, n2);
+		
 		return n1 - n2;
 	}
 
 	@Override
-	public Integer multiplication(Integer n1, Integer n2) {
+	public Integer multiplication(Integer n1, Integer n2) throws CalculatorInputNotValidException {
+		checkForNullValues(n1, n2);
 		return n1 * n2;
 	}
 
 	@Override
-	public Double division(Integer n1, Integer n2) {
+	public Double division(Integer n1, Integer n2) throws CalculatorInputNotValidException {
+		checkForNullValues(n1, n2);
 		return Double.valueOf(n1 / n2);
 	}
 

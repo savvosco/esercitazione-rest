@@ -23,10 +23,10 @@ public interface BaseCalculator {
 	 */
 	Integer sum(Integer n1, Integer n2) throws CalculatorInputNotValidException;
 
-	Integer subtraction(Integer n1, Integer n2);
+	Integer subtraction(Integer n1, Integer n2) throws CalculatorInputNotValidException;
 
-	Integer multiplication(Integer n1, Integer n2);
+	Integer multiplication(Integer n1, Integer n2) throws CalculatorInputNotValidException;
 
-	Double division(Integer n1, Integer n2);
+	Double division(Integer n1, Integer n2) throws CalculatorInputNotValidException;
 
 }
