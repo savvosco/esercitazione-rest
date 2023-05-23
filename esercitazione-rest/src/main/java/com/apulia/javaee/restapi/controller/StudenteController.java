@@ -46,21 +46,4 @@ public class StudenteController {
 		return ResponseEntity.ok(result);
 	}
 
-//	@PutMapping("/update/{id}")
-//	public ResponseEntity<StudenteDto> updateStudente(@PathVariable(value = "id") Integer studenteId,
-//			@RequestBody StudenteDto studente) throws ResourceNotFoundException {
-//
-//		// studenteService.saveStudente(null);
-//
-//		return null;
-////	     Employee employee = employeeRepository.findById(employeeId)
-////	     .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
-////
-////	     employee.setEmailId(employeeDetails.getEmailId());
-////	     employee.setLastName(employeeDetails.getLastName());
-////	     employee.setFirstName(employeeDetails.getFirstName());
-////	     final Employee updatedEmployee = employeeRepository.save(employee);
-////	     return ResponseEntity.ok(updatedEmployee);
-//	}
-
 }

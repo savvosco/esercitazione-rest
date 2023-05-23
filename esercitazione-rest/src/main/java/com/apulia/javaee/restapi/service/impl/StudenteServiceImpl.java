@@ -23,7 +23,7 @@ public class StudenteServiceImpl implements StudenteService {
 
 	@Autowired
 	private StudenteRepository studenteRepo;
-	
+
 	@Autowired
 	private StudenteMapper mapper;
 
@@ -49,32 +49,19 @@ public class StudenteServiceImpl implements StudenteService {
 		return listToRetun;
 	}
 
-	
 	@Override
 	public StudenteDto saveOrUpdateStudente(StudenteDto studente) {
-		
+
 		Studente s = new Studente();
-		
+
 		s.setNome(studente.getNome());
 		s.setCognome(studente.getCognome());
 		s.setMatricola(studente.getMatricola());
 		s.setUniversita(new Universita().builder().id(studente.getIdUniversita()).build());
-		
+
 		Studente result = studenteRepo.save(s);
-		
+
 		return mapper.convertToDto(result);
 	}
-
-	
-//	@Override
-//	public void saveStudente(SaveStudentRequest request) {
-//		
-//		Studente s = new Studente();
-//		s.setNome(request.getNome());
-//		s.setCognome(request.getCognome());
-//		s.setMatricola(request.getMatricola());
-//		s.setUniversita(new Universita().builder().id(request.getIdUniversita()).build());
-//		studenteRepo.save(s);
-//	}
 
 }
