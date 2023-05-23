@@ -21,16 +21,13 @@ public class LoggingAspect {
 
 		final StopWatch stopWatch = new StopWatch();
 
-		// calculate method execution time
+		// calcola il tempo di esecuzione del metodo
 		stopWatch.start();
 		Object result = proceedingJoinPoint.proceed();
 		stopWatch.stop();
 
-		// Log method execution time
-		LOGGER.info("Spring Boot Logging AOP EXAMPLE - Execution time of "
-				+ methodSignature.getDeclaringType().getSimpleName() // Class Name
-				+ "." + methodSignature.getName() + " " // Method Name
-				+ ":: " + stopWatch.getTotalTimeMillis() + " ms");
+		LOGGER.info("AOP LOGGING - Tempo di esecuzione " + methodSignature.getDeclaringType().getSimpleName() + "."
+				+ methodSignature.getName() + " " + ":: " + stopWatch.getTotalTimeMillis() + " ms");
 
 		return result;
 	}
