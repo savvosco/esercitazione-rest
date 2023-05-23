@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,12 @@ public class StudenteController {
 	@Autowired
 	private StudenteService studenteService;
 
+//	@Value("${apulia.test}")
+//	private String message;
+	
+	@Value("${my.test.prop}")
+	private String message2;
+
 	@GetMapping("/get-by-id")
 	public ResponseEntity<StudenteDto> getStudente(@RequestParam(name = "id", required = true) Integer idStudente) {
 		StudenteDto result = studenteService.getStudenteById(idStudente);
@@ -36,6 +43,9 @@ public class StudenteController {
 	@GetMapping("/get-all")
 	public ResponseEntity<List<StudenteDto>> getStudenti() throws Exception {
 		List<StudenteDto> result = studenteService.getStudenti();
+
+		LOGGER.info("MY MESSAGE --> "  + " - " + message2);
+
 		return ResponseEntity.ok(result);
 	}
 
