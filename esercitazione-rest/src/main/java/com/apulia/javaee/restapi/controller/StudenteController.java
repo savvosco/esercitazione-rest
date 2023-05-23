@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apulia.javaee.restapi.dto.StudenteDto;
+import com.apulia.javaee.restapi.exception.MyCustomException;
 import com.apulia.javaee.restapi.service.StudenteService;
 
 @RestController
@@ -30,13 +31,20 @@ public class StudenteController {
 	@GetMapping("/get-by-id")
 	public ResponseEntity<StudenteDto> getStudente(@RequestParam(name = "id", required = true) Integer idStudente) {
 		StudenteDto result = studenteService.getStudenteById(idStudente);
-		return ResponseEntity.ok(result);
+		
+		throw new MyCustomException("OPS!");
+		
+		//return ResponseEntity.ok(result);
 	}
 
 	@GetMapping("/get-all")
-	public ResponseEntity<List<StudenteDto>> getStudenti() {
+	public ResponseEntity<List<StudenteDto>> getStudenti() throws Exception {
 		List<StudenteDto> result = studenteService.getStudenti();
-		return ResponseEntity.ok(result);
+		
+		throw new Exception("OPS!");
+		
+		
+//		return ResponseEntity.ok(result);
 	}
 
 	@PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
