@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.apulia.javaee.restapi.dto.StudenteDto;
 import com.apulia.javaee.restapi.entity.Studente;
-import com.apulia.javaee.restapi.entity.Universita;
 import com.apulia.javaee.restapi.mapper.StudenteMapper;
 import com.apulia.javaee.restapi.repository.StudenteRepository;
 import com.apulia.javaee.restapi.service.StudenteService;
@@ -51,16 +50,7 @@ public class StudenteServiceImpl implements StudenteService {
 
 	@Override
 	public StudenteDto saveOrUpdateStudente(StudenteDto studente) {
-
-		Studente s = new Studente();
-
-		s.setNome(studente.getNome());
-		s.setCognome(studente.getCognome());
-		s.setMatricola(studente.getMatricola());
-		s.setUniversita(new Universita().builder().id(studente.getIdUniversita()).build());
-
-		Studente result = studenteRepo.save(s);
-
+		Studente result = studenteRepo.save(mapper.convertFromDto(studente));
 		return mapper.convertToDto(result);
 	}
 
