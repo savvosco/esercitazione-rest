@@ -3,6 +3,7 @@ package com.apulia.javaee.restapi.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.cfg.NotYetImplementedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,20 +27,20 @@ public class StudenteServiceImpl implements StudenteService {
 
 	@Override
 	public StudenteDto getStudenteById(Integer id) {
-		// FIXME
-		return new StudenteDto();
+		// FIXME implemetazione mancante!
+		throw new NotYetImplementedException();
 	}
 
 	@Override
 	public List<StudenteDto> getStudenti() {
-		// FIXME
-		return new ArrayList<>();
+		// FIXME implemetazione mancante!
+		throw new NotYetImplementedException();
 	}
 
 	@Override
 	public StudenteDto saveOrUpdateStudente(StudenteDto studente) {
-		// FIXME
-		return new StudenteDto();
+		// FIXME implemetazione mancante!
+		throw new NotYetImplementedException();
 	}
 
 }
