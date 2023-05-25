@@ -10,13 +10,29 @@ import com.apulia.javaee.restapi.entity.Universita;
 public class StudenteMapper {
 
 	public StudenteDto convertToDto(Studente s) {
-		return StudenteDto.builder().nome(s.getNome()).cognome(s.getCognome()).matricola(s.getMatricola()).id(s.getId())
-				.idUniversita(s.getUniversita().getId()).build();
+
+		StudenteDto result = new StudenteDto();
+		result.setNome(s.getNome());
+		result.setCognome(s.getCognome());
+		result.setMatricola(s.getMatricola());
+		result.setId(s.getId());
+		result.setIdUniversita(s.getUniversita().getId());
+
+		return result;
 	}
 
 	public Studente convertFromDto(StudenteDto s) {
-		return Studente.builder().nome(s.getNome()).cognome(s.getCognome()).matricola(s.getMatricola()).id(s.getId())
-				.universita(Universita.builder().id(s.getIdUniversita()).build()).build();
+		
+		Universita universita = new Universita();
+		universita.setId(s.getIdUniversita());
+
+		Studente result = new Studente();
+		result.setNome(s.getNome());
+		result.setCognome(s.getCognome());
+		result.setMatricola(s.getMatricola());
+		result.setId(s.getId());
+		result.setUniversita(universita);
+		return result;
 	}
 
 }
